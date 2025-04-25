@@ -1,0 +1,6 @@
+<% flash.each do |type, message| %>
+  <div class="faw-toast bg-white <%= flash_class(type) %>" data-controller="toast" data-action="animationend->toast#handleAnimationEnd">
+    <%= message %>
+    <div class="faw-toast-progress" data-toast-target="progress"></div>
+  </div>
+<% end %>
