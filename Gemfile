@@ -7,5 +7,4 @@ gemspec
 
 gem "irb"
 gem "rake", "~> 13.0"
-gem "sassc"
 # sass app/assets/stylesheets/faw_toast.scss app/assets/stylesheets/faw_toast.css

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    faw_toast (1.2.0)
+    faw_toast (1.2.1)
       rails (>= 7.0, < 9.0)
 
 GEM
@@ -204,7 +204,7 @@ DEPENDENCIES
   faw_toast!
   irb
   rake (~> 13.0)
-  sassc
+  sassc (~> 2.4)
 
 BUNDLED WITH
    2.6.8
