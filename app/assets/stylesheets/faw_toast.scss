@@ -1,9 +1,3 @@
-// Define CSS variables for configuration
-:root {
-  --faw-toast-duration: 7s; // Default duration, can be overridden
-}
-
-// Toast container
 .faw-toast-container {
   position: fixed;
   z-index: 9999;
@@ -45,7 +39,6 @@
   }
 }
 
-// Toast message
 .faw-toast {
   margin-bottom: 10px;
   padding: 1rem;
@@ -93,7 +86,6 @@
     }
   }
 
-  // Progress bar
   .faw-toast-progress {
     position: absolute;
     bottom: 0;
@@ -105,7 +97,6 @@
   }
 }
 
-// Animations
 @keyframes faw-toast-slideIn {
   from {
     transform: translateX(100%);
@@ -133,6 +124,6 @@
     width: 100%;
   }
   to {
-    width: 0%;
+    width: 0;
   }
 }

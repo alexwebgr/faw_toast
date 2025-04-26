@@ -23,10 +23,7 @@ module FawToast
       def add_toast_container_to_layout
         inject_into_file "app/views/layouts/application.html.erb", before: "</body>" do
           <<-HTML
-
-  <div id="toast-container" class="toast-container <%= FawToast.configuration.position %>">
-    <%= render_toast %>
-  </div>
+  <%= toast_container %>
           HTML
         end
       end

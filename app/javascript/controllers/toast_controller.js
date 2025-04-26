@@ -5,12 +5,10 @@ export default class extends Controller {
   static targets = ["progress"]
 
   connect() {
-    // Get the duration from CSS variable or use the default
-    const durationSeconds = parseFloat(document.documentElement.style.getPropertyValue('--faw-toast-duration') || '7');
-    
-    // Set the animation duration for the progress bar if it exists
+    const durationSeconds = getComputedStyle(document.documentElement).getPropertyValue('--faw-toast-duration').trim();
+
     if (this.hasProgressTarget) {
-      this.progressTarget.style.animationDuration = `${durationSeconds}s`;
+      this.progressTarget.style.animationDuration = durationSeconds;
     }
   }
 

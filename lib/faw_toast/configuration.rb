@@ -5,7 +5,7 @@ module FawToast
     attr_accessor :duration_seconds, :position, :css_classes
 
     def initialize
-      @duration_seconds = 7 # seconds
+      @duration_seconds = "7s"
       @position = 'top-right'
       @css_classes = {
         success: 'faw-toast-border-l-10 faw-toast-border-green-500',

@@ -2,7 +2,7 @@
 
 FawToast.configure do |config|
   # Duration in seconds for which the toast will be displayed
-  # config.duration_seconds = 7
+  # config.duration_seconds = '7s'
 
   # Position of the toast container
   # Available options: 'top-right', 'top-left', 'bottom-right', 'bottom-left', 'top-center', 'bottom-center'
