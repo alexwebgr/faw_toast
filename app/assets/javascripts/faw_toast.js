@@ -1,4 +1,7 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', faw_init);
+document.addEventListener('turbo:load', faw_init);
+
+function faw_init() {
   function setupToastListeners() {
     const toasts = document.querySelectorAll('.faw-toast');
 
@@ -26,4 +29,4 @@ document.addEventListener('DOMContentLoaded', function() {
     childList: true,
     subtree: true
   });
-});
+}
