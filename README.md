@@ -66,6 +66,11 @@ def create
   flash[:success] = "Item was successfully created!"
   redirect_to items_path
 end
+
+# using Turbo Streams
+flash.now[flash_type] = message
+render turbo_stream: turbo_stream.append("faw-toast-container", partial: "faw_toast/toast"), status: status
+
 ```
 
 ```ruby
