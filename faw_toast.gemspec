@@ -5,12 +5,12 @@ require_relative "lib/faw_toast/version"
 Gem::Specification.new do |spec|
   spec.name = "faw_toast"
   spec.version = FawToast::VERSION
-  spec.authors = ["FAW Team"]
+  spec.authors = ["alexwebgr"]
   spec.email = ["info@example.com"]
 
   spec.summary = "A simple, configurable toast notification system for Rails applications"
   spec.description = "FawToast provides an easy way to display flash messages as toast notifications in Rails applications"
-  spec.homepage = "https://github.com/example/faw_toast"
+  spec.homepage = "https://github.com/alexwebgr/faw_toast"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.0.0"
 

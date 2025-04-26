@@ -5,7 +5,7 @@ A simple, configurable toast notification system for Rails applications. FawToas
 ## Features
 
 - Easy integration with Rails 7+ applications
-- CSS-based toast notifications with automatic dismissal
+- CSS-only animations
 - Configurable toast duration and position
 - Customizable CSS classes for different flash types
 - Support for standard flash types plus additional success and info types
