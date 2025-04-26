@@ -8,11 +8,12 @@ module FawToast
       @duration_seconds = "7s"
       @position = 'top-right'
       @css_classes = {
-        success: 'faw-toast-border-l-10 faw-toast-border-green-500',
-        alert: 'faw-toast-border-l-10 faw-toast-border-red-500',
-        info: 'faw-toast-border-l-10 faw-toast-border-sky-600',
-        notice: 'faw-toast-border-l-10 faw-toast-border-sky-600',
-        default: 'faw-toast-border-l-10 faw-toast-border-indigo-500'
+        success: 'faw-toast-border-l-10 faw-toast-border-green',
+        alert: 'faw-toast-border-l-10 faw-toast-border-red',
+        danger: 'faw-toast-border-l-10 faw-toast-border-red',
+        info: 'faw-toast-border-l-10 faw-toast-border-sky',
+        notice: 'faw-toast-border-l-10 faw-toast-border-sky',
+        default: 'faw-toast-border-l-10 faw-toast-border-indigo'
       }
     end
   end

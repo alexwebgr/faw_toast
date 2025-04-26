@@ -15,7 +15,7 @@ module FawToast
     end
 
     initializer "faw_toast.flash_types" do
-      ActionController::Base.add_flash_types :success, :info
+      ActionController::Base.add_flash_types :success, :info, :danger
     end
   end
 end

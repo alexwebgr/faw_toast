@@ -41,13 +41,13 @@
   .faw-toast.faw-toast-border-l-10 {
     border-left-width: 10px;
     border-left-style: solid; }
-  .faw-toast.faw-toast-border-green-500 {
+  .faw-toast.faw-toast-border-green {
     border-left-color: #10b981; }
-  .faw-toast.faw-toast-border-red-500 {
+  .faw-toast.faw-toast-border-red {
     border-left-color: #ef4444; }
-  .faw-toast.faw-toast-border-sky-600 {
+  .faw-toast.faw-toast-border-sky {
     border-left-color: #0284c7; }
-  .faw-toast.faw-toast-border-indigo-500 {
+  .faw-toast.faw-toast-border-indigo {
     border-left-color: #6366f1; }
   .faw-toast .faw-toast-content {
     flex: 1; }

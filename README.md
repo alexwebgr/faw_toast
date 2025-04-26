@@ -9,7 +9,7 @@ A simple, configurable toast notification system for Rails applications. FawToas
 - CSS-only animations
 - Configurable toast duration and position
 - Customizable CSS classes for different flash types
-- Support for standard flash types plus additional success and info types
+- Support for standard flash types plus additional success, info and danger types
 - Simple to install and use
 
 ## Installation
@@ -88,6 +88,7 @@ Turbo::StreamsChannel.broadcast_append_to(
 FawToast supports the following flash types out of the box:
 - `:success` - Green border
 - `:alert` - Red border
+- `:danger` - Red border (same as alert, but provides semantic difference)
 - `:info` - Sky blue border
 - `:notice` - Sky blue border
 - Any other type will use the default indigo border
@@ -107,11 +108,12 @@ FawToast.configure do |config|
 
   # CSS classes for different flash types
   config.css_classes = {
-    success: 'border-l-10 border-green-500',
-    alert: 'border-l-10 border-red-500',
-    info: 'border-l-10 border-sky-600',
-    notice: 'border-l-10 border-sky-600',
-    default: 'border-l-10 border-indigo-500'
+    success: 'faw-toast-border-l-10 faw-toast-border-green',
+    alert: 'faw-toast-border-l-10 faw-toast-border-red',
+    danger: 'faw-toast-border-l-10 faw-toast-border-red',
+    info: 'faw-toast-border-l-10 faw-toast-border-sky',
+    notice: 'faw-toast-border-l-10 faw-toast-border-sky',
+    default: 'faw-toast-border-l-10 faw-toast-border-indigo'
   }
 end
 ```
