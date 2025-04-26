@@ -38,16 +38,42 @@ module FawToast
         end
       end
 
-      def copy_javascript_controller
-        template "toast_controller.js", "app/javascript/controllers/toast_controller.js"
-
-        if File.exist?("app/javascript/controllers/index.js")
-          inject_into_file "app/javascript/controllers/index.js" do
-            "\nimport ToastController from \"./toast_controller\"\napplication.register(\"toast\", ToastController)"
+      def add_javascript_import
+        if File.exist?("app/javascript/application.js")
+          append_to_file "app/javascript/application.js" do
+            "import \"faw_toast\"\n"
+          end
+        elsif File.exist?("app/assets/javascripts/application.js")
+          append_to_file "app/assets/javascripts/application.js" do
+            "//= require faw_toast\n"
           end
         else
-          say "Please manually register the toast controller in your Stimulus application", :red
+          say "Please manually import the FawToast JavaScript in your application", :red
         end
+      end
+
+      def update_tsconfig
+        gem_path = `bundle show faw_toast`.chomp
+
+        # Default tsconfig structure if file doesn't exist
+        tsconfig = if File.exist?("tsconfig.json")
+          JSON.parse(File.read("tsconfig.json"))
+        else
+          {
+            "compilerOptions" => {
+              "baseUrl" => ".",
+              "paths" => {}
+            }
+          }
+        end
+
+        tsconfig["compilerOptions"] ||= {}
+        tsconfig["compilerOptions"]["paths"] ||= {}
+        tsconfig["compilerOptions"]["paths"]["faw_toast"] = ["#{gem_path}/app/javascript/faw_toast.js"]
+
+        File.write("tsconfig.json", JSON.pretty_generate(tsconfig))
+
+        say "Updated tsconfig.json with FawToast paths", :green
       end
     end
   end

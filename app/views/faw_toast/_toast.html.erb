@@ -1,6 +1,9 @@
-<% flash.each do |type, message| %>
-  <div class="faw-toast <%= flash_class(type) %>" data-controller="toast" data-action="animationend->toast#handleAnimationEnd">
-    <%= message %>
-    <div class="faw-toast-progress" data-toast-target="progress"></div>
-  </div>
+<%# Toast partial for rendering flash messages %>
+<% if flash.any? %>
+  <% flash.each do |type, message| %>
+    <div class="faw-toast <%= flash_class(type) %>">
+      <%= message %>
+      <div class="faw-toast-progress"></div>
+    </div>
+  <% end %>
 <% end %>
