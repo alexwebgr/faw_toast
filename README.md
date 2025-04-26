@@ -1,6 +1,7 @@
 # FawToast
-
 A simple, configurable toast notification system for Rails applications. FawToast provides an easy way to display flash messages as toast notifications with minimal setup.
+
+[![Gem Version](https://badge.fury.io/rb/faw_toast.svg)](https://badge.fury.io/rb/faw_toast)
 
 ## Features
 
@@ -40,11 +41,23 @@ rails generate faw_toast:install
 This will:
 1. Create a configuration initializer at `config/initializers/faw_toast.rb`
 2. Add the toast container to your application layout
-3. Import the required stylesheet and JavaScript controller
+
+Include the css and javascript files in your `application.html.erb` layout file.
+
+For `propshaft`
+```erb
+  <%= stylesheet_link_tag "faw_toast", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "faw_toast", "data-turbo-track": "reload", type: "module" %>
+```
+and if you are using `sprockets` include the following lines in your `config/manifest.js`
+```javascript
+//= link faw_toast.js
+//= link faw_toast.css
+```
 
 ## Usage
 
-FawToast works with Rails flash messages. You can use it like this:
+FawToast works with Rails flash messages. You can use it like this
 
 ```ruby
 # In your controller
@@ -53,6 +66,18 @@ def create
   flash[:success] = "Item was successfully created!"
   redirect_to items_path
 end
+```
+
+```ruby
+# In your background job or service object
+flash = {}
+flash[type] = message
+Turbo::StreamsChannel.broadcast_append_to(
+  channel,
+  target: "faw-toast-container",
+  partial: "faw_toast/toast",
+  locals: { flash: flash }
+)
 ```
 
 FawToast supports the following flash types out of the box:
@@ -94,7 +119,7 @@ FawToast uses CSS animations to show and hide toast notifications automatically.
 2. The flash message content
 3. A progress bar that indicates how much time is left before the toast disappears
 
-The toast appears with a slide-in animation, stays visible for the configured duration, and then slides out automatically. No JavaScript interaction is required for the basic functionality.
+The toast appears with a slide-in animation, stays visible for the configured duration, and then slides out automatically
 
 ## Development
 

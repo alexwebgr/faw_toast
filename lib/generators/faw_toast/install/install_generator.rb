@@ -37,20 +37,6 @@ module FawToast
           say "Please manually import the FawToast stylesheet in your application", :red
         end
       end
-
-      # def add_javascript_import
-      #   if File.exist?("app/javascript/application.js")
-      #     append_to_file "app/javascript/application.js" do
-      #       "import \"faw_toast\"\n"
-      #     end
-      #   elsif File.exist?("app/assets/javascripts/application.js")
-      #     append_to_file "app/assets/javascripts/application.js" do
-      #       "//= require faw_toast\n"
-      #     end
-      #   else
-      #     say "Please manually import the FawToast JavaScript in your application", :red
-      #   end
-      # end
     end
   end
 end
