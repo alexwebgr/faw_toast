@@ -20,21 +20,23 @@ module FawToast
         end
       end
 
+      def add_stylesheet_tag
+        inject_into_file "app/views/layouts/application.html.erb", after: "<%= stylesheet_link_tag \"application\", \"data-turbo-track\": \"reload\" %>" do
+          "\n    <%= stylesheet_link_tag \"faw_toast\", \"data-turbo-track\": \"reload\" %>"
+        end
+      end
+
+      def add_javascript_tag
+        inject_into_file "app/views/layouts/application.html.erb", before: "</head>" do
+          "  <%= javascript_include_tag \"faw_toast\", \"data-turbo-track\": \"reload\" %>\n"
+        end
+      end
+
       def add_toast_container_to_layout
         inject_into_file "app/views/layouts/application.html.erb", before: "</body>" do
           <<-HTML
   <%= toast_container %>
           HTML
-        end
-      end
-
-      def add_stylesheet_import
-        if File.exist?("app/assets/stylesheets/application.scss")
-          append_to_file "app/assets/stylesheets/application.scss" do
-            "\n@import \"faw_toast\";\n"
-          end
-        else
-          say "Please manually import the FawToast stylesheet in your application", :red
         end
       end
     end
