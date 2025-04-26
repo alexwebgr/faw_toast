@@ -1,0 +1,88 @@
+.faw-toast-container {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; }
+  .faw-toast-container.faw-toast-top-right {
+    top: 1rem;
+    right: 1rem; }
+  .faw-toast-container.faw-toast-top-left {
+    top: 1rem;
+    left: 1rem; }
+  .faw-toast-container.faw-toast-bottom-right {
+    bottom: 1rem;
+    right: 1rem; }
+  .faw-toast-container.faw-toast-bottom-left {
+    bottom: 1rem;
+    left: 1rem; }
+  .faw-toast-container.faw-toast-top-center {
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%); }
+  .faw-toast-container.faw-toast-bottom-center {
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%); }
+
+.faw-toast {
+  margin-bottom: 10px;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  animation: faw-toast-slideIn 0.3s ease-in-out, faw-toast-slideOut 0.3s ease-in-out var(--faw-toast-duration) forwards;
+  max-width: 24rem;
+  width: 100%;
+  pointer-events: auto;
+  background-color: white; }
+  .faw-toast.faw-toast-border-l-10 {
+    border-left-width: 10px;
+    border-left-style: solid; }
+  .faw-toast.faw-toast-border-green-500 {
+    border-left-color: #10b981; }
+  .faw-toast.faw-toast-border-red-500 {
+    border-left-color: #ef4444; }
+  .faw-toast.faw-toast-border-sky-600 {
+    border-left-color: #0284c7; }
+  .faw-toast.faw-toast-border-indigo-500 {
+    border-left-color: #6366f1; }
+  .faw-toast .faw-toast-content {
+    flex: 1; }
+  .faw-toast .faw-toast-close {
+    cursor: pointer;
+    color: #6b7280; }
+    .faw-toast .faw-toast-close:hover {
+      color: #111827; }
+  .faw-toast .faw-toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    animation: faw-toast-progress var(--faw-toast-duration) linear; }
+
+@keyframes faw-toast-slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0; }
+  to {
+    transform: translateX(0);
+    opacity: 1; } }
+@keyframes faw-toast-slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1; }
+  to {
+    transform: translateX(100%);
+    opacity: 0; } }
+@keyframes faw-toast-progress {
+  from {
+    width: 100%; }
+  to {
+    width: 0; } }
+
+/*# sourceMappingURL=faw_toast.css.map */

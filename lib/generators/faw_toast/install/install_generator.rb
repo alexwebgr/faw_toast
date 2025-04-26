@@ -38,43 +38,19 @@ module FawToast
         end
       end
 
-      def add_javascript_import
-        if File.exist?("app/javascript/application.js")
-          append_to_file "app/javascript/application.js" do
-            "import \"faw_toast\"\n"
-          end
-        elsif File.exist?("app/assets/javascripts/application.js")
-          append_to_file "app/assets/javascripts/application.js" do
-            "//= require faw_toast\n"
-          end
-        else
-          say "Please manually import the FawToast JavaScript in your application", :red
-        end
-      end
-
-      def update_tsconfig
-        gem_path = `bundle show faw_toast`.chomp
-
-        # Default tsconfig structure if file doesn't exist
-        tsconfig = if File.exist?("tsconfig.json")
-          JSON.parse(File.read("tsconfig.json"))
-        else
-          {
-            "compilerOptions" => {
-              "baseUrl" => ".",
-              "paths" => {}
-            }
-          }
-        end
-
-        tsconfig["compilerOptions"] ||= {}
-        tsconfig["compilerOptions"]["paths"] ||= {}
-        tsconfig["compilerOptions"]["paths"]["faw_toast"] = ["#{gem_path}/app/javascript/faw_toast.js"]
-
-        File.write("tsconfig.json", JSON.pretty_generate(tsconfig))
-
-        say "Updated tsconfig.json with FawToast paths", :green
-      end
+      # def add_javascript_import
+      #   if File.exist?("app/javascript/application.js")
+      #     append_to_file "app/javascript/application.js" do
+      #       "import \"faw_toast\"\n"
+      #     end
+      #   elsif File.exist?("app/assets/javascripts/application.js")
+      #     append_to_file "app/assets/javascripts/application.js" do
+      #       "//= require faw_toast\n"
+      #     end
+      #   else
+      #     say "Please manually import the FawToast JavaScript in your application", :red
+      #   end
+      # end
     end
   end
 end
