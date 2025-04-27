@@ -15,7 +15,7 @@ module FawToast
         inject_into_file "app/views/layouts/application.html.erb", after: "<head>" do
           <<-HTML
 
-  <%= toast_css_variables %>
+    <%= toast_css_variables %>
           HTML
         end
       end

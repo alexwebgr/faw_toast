@@ -1,9 +1,6 @@
-<%# Toast partial for rendering flash messages %>
-<% if flash.any? %>
-  <% flash.each do |type, message| %>
-    <div class="faw-toast <%= flash_class(type) %>">
-      <%= message %>
-      <div class="faw-toast-progress"></div>
-    </div>
-  <% end %>
+<% flash.each do |type, message| %>
+  <div class="faw-toast <%= flash_class(type) %>">
+    <%= message %>
+    <div class="faw-toast-progress"></div>
+  </div>
 <% end %>

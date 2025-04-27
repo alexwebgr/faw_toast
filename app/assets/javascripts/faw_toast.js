@@ -8,7 +8,10 @@ function faw_init() {
     toasts.forEach(function(toast) {
       toast.addEventListener('animationend', function(event) {
         // Only remove the toast when the slideOut animation completes
-        if (event.animationName === 'faw-toast-slideOut') {
+        if (event.animationName === 'faw-toast-slideOutRight' || 
+            event.animationName === 'faw-toast-slideOutLeft' || 
+            event.animationName === 'faw-toast-slideOutTop' || 
+            event.animationName === 'faw-toast-slideOutBottom') {
           toast.remove();
         }
       });
