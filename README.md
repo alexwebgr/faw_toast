@@ -40,16 +40,13 @@ rails generate faw_toast:install
 
 This will:
 1. Create a configuration initializer at `config/initializers/faw_toast.rb`
-2. Add the toast container to your application layout
+2. Include the following into your `application.html.erb`
+   * Add a style tag for the configurable css variables 
+   * `<%= stylesheet_link_tag "faw_toast", "data-turbo-track": "reload" %>`
+   * `<%= javascript_include_tag "faw_toast", "data-turbo-track": "reload", type: "module" %>`
+   * Add the toast container div
 
-Include the css and javascript files in your `application.html.erb` layout file.
-
-For `propshaft`
-```erb
-  <%= stylesheet_link_tag "faw_toast", "data-turbo-track": "reload" %>
-  <%= javascript_include_tag "faw_toast", "data-turbo-track": "reload", type: "module" %>
-```
-and if you are using `sprockets` include the following lines in your `config/manifest.js`
+If you are using `sprockets` you may need to add the following lines to your `app/config/manifest.js`
 ```javascript
 //= link faw_toast.js
 //= link faw_toast.css
