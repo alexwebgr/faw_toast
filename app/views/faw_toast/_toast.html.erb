@@ -1,6 +1,14 @@
-<% flash.each do |type, message| %>
+<% if local_assigns[:type] && local_assigns[:message] %>
   <div class="faw-toast <%= flash_class(type) %>">
     <%= message %>
     <div class="faw-toast-progress"></div>
   </div>
+<% else %>
+  <% flash.each do |type, message| %>
+    <div class="faw-toast <%= flash_class(type) %>">
+      <%= message %>
+      <div class="faw-toast-progress"></div>
+    </div>
+  <% end %>
 <% end %>
+
