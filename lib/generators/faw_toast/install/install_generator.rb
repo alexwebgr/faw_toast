@@ -22,13 +22,13 @@ module FawToast
 
       def add_stylesheet_tag
         inject_into_file "app/views/layouts/application.html.erb", after: "<%= stylesheet_link_tag \"application\", \"data-turbo-track\": \"reload\" %>" do
-          "\n    <%= stylesheet_link_tag \"faw_toast\", \"data-turbo-track\": \"reload\" %>"
+          "\n    <%= stylesheet_link_tag \"faw_toast.min\", \"data-turbo-track\": \"reload\" %>"
         end
       end
 
       def add_javascript_tag
         inject_into_file "app/views/layouts/application.html.erb", before: "</head>" do
-          "  <%= javascript_include_tag \"faw_toast\", \"data-turbo-track\": \"reload\" %>\n"
+          "  <%= javascript_include_tag \"faw_toast.min\", \"data-turbo-track\": \"reload\" %>\n"
         end
       end
 

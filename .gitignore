@@ -8,3 +8,4 @@
 /tmp/
 *.gem
 .sass-cache
+node_modules

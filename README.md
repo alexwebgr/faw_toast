@@ -42,8 +42,8 @@ This will:
 1. Create a configuration initializer at `config/initializers/faw_toast.rb`
 2. Include the following into your `application.html.erb`
    * Add a style tag for the configurable css variables 
-   * `<%= stylesheet_link_tag "faw_toast", "data-turbo-track": "reload" %>`
-   * `<%= javascript_include_tag "faw_toast", "data-turbo-track": "reload", type: "module" %>`
+   * `<%= stylesheet_link_tag "faw_toast.min", "data-turbo-track": "reload" %>`
+   * `<%= javascript_include_tag "faw_toast.min", "data-turbo-track": "reload", type: "module" %>`
    * Add the toast container div
 
 If you are using `sprockets` you may need to add the following lines to your `app/config/manifest.js`
